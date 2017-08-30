@@ -1,0 +1,50 @@
+<%= form_for(@ingredient, html: { class: "form-horizontal", role: "form" }) do |f| %>
+
+  <%# Alert showing errors for this form %>
+  <% if @ingredient.errors.any? %>
+    <div class="alert alert-danger alert-dismissable" role="alert">
+      <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+      <h4><%= pluralize(@ingredient.errors.count, "error") %> prohibited this ingredient from being saved:</h4>
+
+      <ul>
+      <% @ingredient.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%# item %>
+  <div class="form-group">
+    <%= f.label :item, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.text_field :item, class: "form-control" %>
+    </div>
+  </div>
+
+
+  <%# description %>
+  <div class="form-group">
+    <%= f.label :description, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.text_field :description, class: "form-control" %>
+    </div>
+  </div>
+
+
+  <%# recipes %>
+  <div class="form-group">
+    <%= f.label :recipes, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.text_field :recipes, class: "form-control" %>
+    </div>
+  </div>
+
+
+  <%# Submit %>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <%= f.submit class: "btn btn-primary" %>
+    </div>
+  </div>
+<% end -%>
